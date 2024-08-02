@@ -3,3 +3,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* En tu archivo CSS */
+@keyframes gradientTransition {
+  0% {
+    background: black;
+  }
+  100% {
+    background: linear-gradient(to left, #6FE3C5, #573BD5, #20183F);
+  }
+}
+
+.animate-gradient {
+  animation: gradientTransition 5s forwards;
+}
