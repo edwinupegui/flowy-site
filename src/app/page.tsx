@@ -1,14 +1,12 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Image from 'next/image'
 
-import { motion } from 'framer-motion'
-
-import Navbar from '@/components/organisms/NavBar'
+import NavBar from '@/components/organisms/NavBar'
 
 import { SelectedPage } from '@/constants/SelectedPage'
 import { useStoreNavigation } from '@/store/Navigation.state'
+import MainSection from '@/components/organisms/MainSection'
 
 export default function Home() {
   const navigation = useStoreNavigation()
@@ -37,8 +35,8 @@ export default function Home() {
               case SelectedPage.Home:
                 navigation.setSelectedPage(SelectedPage.Home)
                 break
-              case SelectedPage.KnowUs:
-                navigation.setSelectedPage(SelectedPage.KnowUs)
+              case SelectedPage.JoinUp:
+                navigation.setSelectedPage(SelectedPage.JoinUp)
                 break
               case SelectedPage.Services:
                 navigation.setSelectedPage(SelectedPage.Services)
@@ -68,100 +66,10 @@ export default function Home() {
 
   return (
     <main>
-      <Navbar />
-
+      <NavBar />
+      <MainSection homeRef={homeRef} />
       <section
-        id={SelectedPage.Home}
-        ref={homeRef}
-        className="animate-gradient flex w-full flex-col bg-black transition-all duration-100 ease-in-out"
-      >
-        <motion.div
-          className="relative flex justify-between pl-48 pr-96 pt-48"
-          onViewportEnter={() => navigation.setSelectedPage(SelectedPage.Home)}
-        >
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5 }}
-            variants={{
-              hidden: { opacity: 0, x: -50 },
-              visible: { opacity: 1, x: 0 },
-            }}
-          >
-            <h2 className="text-[5rem] font-semibold leading-tight text-white">
-              Simplifica tu <br /> vida, mejora <br /> tu futuro
-            </h2>
-          </motion.div>
-          <div className="relative">
-            <motion.div
-              className="relative"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
-              }}
-            >
-              <div className="relative -bottom-10">
-                <Image
-                  priority
-                  src="/images/phone.svg"
-                  alt="phone"
-                  height={300}
-                  width={300}
-                />
-              </div>
-            </motion.div>
-            <motion.div
-              className="absolute -left-40 top-40"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
-              }}
-            >
-              <div>
-                <Image
-                  priority
-                  src="/images/phone-1.svg"
-                  alt="phone-1"
-                  height={200}
-                  width={200}
-                />
-              </div>
-            </motion.div>
-            <motion.div
-              className="absolute -left-40 top-56"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ delay: 0.9, duration: 0.9 }}
-              variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
-              }}
-            >
-              <div>
-                <Image
-                  priority
-                  src="/images/phone-2.svg"
-                  alt="phone-1"
-                  height={150}
-                  width={150}
-                />
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
-      <section
-        id={SelectedPage.KnowUs}
+        id={SelectedPage.JoinUp}
         ref={knowUsRef}
         className="flex w-full flex-col px-10 py-5"
       >

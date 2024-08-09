@@ -4,16 +4,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/* En tu archivo CSS */
-@keyframes gradientTransition {
-  0% {
-    background: black;
-  }
-  100% {
-    background: linear-gradient(to left, #6FE3C5, #573BD5, #20183F);
-  }
+body {
+  background-color: #192843;
 }
 
-.animate-gradient {
-  animation: gradientTransition 5s forwards;
+.gradient-nav-bar {
+  background: radial-gradient(circle at 20% 50%, #192843, transparent 80%),
+    radial-gradient(circle at 72% 50%, #3b0c78, transparent 70%);
+}
+
+.gradient-main {
+  background: radial-gradient(circle at 75% 20%, #3b0c78, transparent 40%),
+    radial-gradient(circle at 70% 15%, #3b0c78, transparent 20%),
+    radial-gradient(circle at 75% 15%, #3b0c78, transparent 40%),
+    radial-gradient(circle at 90% 60%, #6fe3c5, transparent 20%);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #ffffff, #6fe3c5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.img-bottom {
+  mask-image: linear-gradient(#3b0c78 90%, transparent);
+}
+
+.points-color {
+  opacity: 0.2;
+}
+
+.scrollbar::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+  height: 6px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background-color: #c1c1c1;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
