@@ -2,11 +2,11 @@
 
 import { useEffect, useRef } from 'react'
 
+import MainSection from '@/components/organisms/MainSection'
 import NavBar from '@/components/organisms/NavBar'
 
 import { SelectedPage } from '@/constants/SelectedPage'
 import { useStoreNavigation } from '@/store/Navigation.state'
-import MainSection from '@/components/organisms/MainSection'
 
 export default function Home() {
   const navigation = useStoreNavigation()

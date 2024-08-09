@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 import { Tab, Tabs } from '@nextui-org/react'
 import {
-  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -12,9 +11,10 @@ import {
   NavbarMenuToggle,
 } from '@nextui-org/react'
 
+import useMediaQuery from '@/hooks/useMediaQuery'
+
 import { SelectedPage } from '@/constants/SelectedPage'
 import { useStoreNavigation } from '@/store/Navigation.state'
-import useMediaQuery from '@/hooks/useMediaQuery'
 
 const NavBar = () => {
   const navigation = useStoreNavigation()
@@ -24,7 +24,8 @@ const NavBar = () => {
   const handleSelectionChange = (key: string | number) => {
     navigation.setSelectedPage(key as SelectedPage)
   }
-
+  // eslint-disable-next-line no-console
+  console.log(isMenuOpen)
   const renderTabs = () => {
     const tabs = [
       { title: 'Inicio', page: SelectedPage.Home },
@@ -71,7 +72,7 @@ const NavBar = () => {
       onMenuOpenChange={setIsMenuOpen}
       position="sticky"
       maxWidth="full"
-      className="gradient-nav-bar bg-[#192843] md:px-20 py-2"
+      className="gradient-nav-bar bg-[#192843] py-2 md:px-20"
     >
       <NavbarContent>
         <NavbarBrand>
@@ -97,15 +98,15 @@ const NavBar = () => {
       </NavbarContent>
       <NavbarMenuToggle
         icon={
-          <div className="bg-primary rounded-lg w-[45px] h-[45px] p-2 flex flex-col gap-1.5 justify-center items-center">
-            <div className="w-7 bg-white h-1 rounded-full" />
-            <div className="w-7 bg-white h-1 rounded-full" />
-            <div className="w-7 bg-white h-1 rounded-full" />
+          <div className="flex size-[45px] flex-col items-center justify-center gap-1.5 rounded-lg bg-primary p-2">
+            <div className="h-1 w-7 rounded-full bg-white" />
+            <div className="h-1 w-7 rounded-full bg-white" />
+            <div className="h-1 w-7 rounded-full bg-white" />
           </div>
         }
         className="sm:hidden"
       />
-      <NavbarMenu className="flex flex-col items-center justify-start mt-5 gap-4 no-scrollbar bg-primary">
+      <NavbarMenu className="no-scrollbar mt-5 flex flex-col items-center justify-start gap-4 bg-primary">
         {renderMenuItems()}
       </NavbarMenu>
     </Navbar>
